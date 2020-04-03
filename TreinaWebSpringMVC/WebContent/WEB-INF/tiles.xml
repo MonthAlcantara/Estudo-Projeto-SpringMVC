@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://titles.apache.org/dtds/tiles-config_3_0.dtd">
+<!-- Nessa área é declarada um layout que vai servir como base para todas 
+	as views -->
+<tiles-definitions>
+	<definition name="layout.tiles"
+		template="/WEB-INF/views/layout/baseLayout.jsp">
+		<!-- Em cada Put-Attribute está uma sessão da minha página. Cada sessão 
+			será fornecida por um jsp próprio -->
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header"
+			value="/WEB-INF/views/layout/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer"
+			value="/WEB-INF/views/layout/footer.jsp"></put-attribute>
+	</definition>
+	<!-- Album -->
+
+	<!-- Essa é a parte de definição das views. o "name" será usado no return 
+		das actions. Aqui eu defino -->
+	<!-- o texto que estará no meu "title". O value do body é uma jsp onde eu 
+		defino o caminho para a mesma -->
+
+	<!-- As telas dessa minha aplicação extends o layout.tiles, que foi o name 
+		que eu dei ao meu layout base. Ou seja, elas serão usadas la. São extensões 
+		dessa pagina -->
+
+	<!-- Tela de Adicionar -->
+
+	<definition name="album.adicionar.tiles"
+		extends="layout.tiles">
+		<put-attribute name="title"
+			value="TreinaWeb Spring MVC: Adição de álbuns"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/albuns/adicionar.jsp"></put-attribute>
+	</definition>
+
+	<!-- Tela de exibição -->
+
+	<definition name="album.exibir.tiles" extends="layout.tiles">
+		<put-attribute name="title"
+			value="TreinaWeb Spring MVC: Exibição de álbuns"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/albuns/exibir.jsp"></put-attribute>
+	</definition>
+
+	<!-- Tela de Alteração -->
+
+	<definition name="album.alterar.tiles"
+		extends="layout.tiles">
+		<put-attribute name="title" value="Edição de Album"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/albuns/alterar.jsp"></put-attribute>
+	</definition>
+
+	<!-- Tela de Listagem -->
+
+	<definition name="album.listar.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="Lista de Albuns"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/albuns/listar.jsp"></put-attribute>
+	</definition>
+
+</tiles-definitions>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>TreinaWebSpringMVC</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+<!--   Servlet que vai fazer o orquestramento do sistema. É quem irá interceptar  -->
+<!-- 	as requisições e passar pra quem vai resolver o problema -->
+<servlet>
+<servlet-name>TreinaWebSpringMVC </servlet-name><!--   o nome tem que ser o mesmo do contexto especificado acima -->
+<!-- A classe que vai ser instaciada pelo servidor para fazer os tratamentos http -->
+<!-- O spring ja disponibiliza essa classe pronta. Só precisa declarar, como abaixo -->
+<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+<load-on-startup>1</load-on-startup><!-- Isso indica que ele será carregado assim que minha aplicação subir pro servidor -->
+</servlet>
+<servlet-mapping><!-- Indicação do que/qual url que esse servlet vai poder receptar e processar, cada formato de url deve ser correspondente a um servlet -->
+<servlet-name>TreinaWebSpringMVC</servlet-name><!--  aqui é indicado o servlet -->
+<url-pattern>/</url-pattern><!--  tipo de url que ele interceptará. o "/" significa que ele pegará todas as urls -->
+</servlet-mapping>
+
+</web-app>
