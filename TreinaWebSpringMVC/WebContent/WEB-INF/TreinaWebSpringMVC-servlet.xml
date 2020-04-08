@@ -22,7 +22,7 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 <!-- 	Realizando mapeamento dos recursos  -->
 <!-- Nessa tag eu indico que meus rescursos estão oficialmente no caminho indicado em "location". -->
-<!-- eles vvão ser acessados por uma pasta virtual indicada em mapping, onde tudo que estiver dentro dela será -->
+<!-- eles vão ser acessados por uma pasta virtual indicada em mapping, onde tudo que estiver dentro dela será -->
 <!-- considerado um resource "/**"  -->
 	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"></mvc:resources>
 	

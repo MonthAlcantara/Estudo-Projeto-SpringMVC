@@ -29,8 +29,8 @@
          <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Músicas <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a>Listar</a></li>
-            <li><a href="#">Cadastrar</a></li>
+            <li><a href="/TreinaWebSpringMVC/musicas/listar/">Listar</a></li>
+            <li><a href="/TreinaWebSpringMVC/musicas/adicionar/">Cadastrar</a></li>
             
       </ul>
      </li>
