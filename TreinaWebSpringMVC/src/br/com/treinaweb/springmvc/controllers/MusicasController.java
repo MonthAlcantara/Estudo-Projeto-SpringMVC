@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.apache.catalina.startup.ClassLoaderFactory.RepositoryType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.treinaweb.springmvc.dominios.Musica;
 import br.com.treinaweb.springmvc.repositorios.RepositorioAlbum;
@@ -78,5 +80,8 @@ public String excluir(@PathVariable Long id) {
 	
 	
 }
-
+@RequestMapping(value="/porNome", method = RequestMethod.GET, produces = "application/json")
+public List<Musica> buscarPorNome(@RequestParam(name="nome", defaultValue="")String nome){
+	return repositorioMusica.findByNome(nome);
+}
 }

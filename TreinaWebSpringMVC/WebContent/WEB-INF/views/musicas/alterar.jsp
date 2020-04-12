@@ -8,7 +8,7 @@
 <c:url var="actionAdicionar" value="/musicas/adicionar"></c:url>
 <!-- associado a action (var) por post ao formulário que será enviado para o servidor -->
 
-<title>TreinaWeb SpringMVC - Adição de Albuns</title>
+<title>Adição de Musicas</title>
 <h2>Edição da Musica "${musica.nome}"</h2>
 <br />
 

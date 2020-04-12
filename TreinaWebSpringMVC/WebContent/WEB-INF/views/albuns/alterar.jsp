@@ -5,7 +5,7 @@
 <!-- TAGLIB do Spring -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<title>TreinaWeb SpringMVC - Adição de Albuns</title>
+<title> Adição de Albuns</title>
 <h2> Alteração do Album ${album.nome}</h2>
 
 <!-- Criando uma referencia para a action em var-->

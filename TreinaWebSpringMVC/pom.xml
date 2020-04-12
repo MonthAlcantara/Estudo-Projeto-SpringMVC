@@ -115,9 +115,25 @@
 			<version>2.1.1</version>
 		</dependency>
 		<dependency>
-        <groupId>javax.xml.bind</groupId>
-        <artifactId>jaxb-api</artifactId>
-        <version>2.3.0</version>
-    </dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<!-- Jackson -->
+		<!-- Core. Partes fundameiais do Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.7.6</version>
+		</dependency>
+		<!-- Essa dependencia auxilia o jackson a fazer a a correspondencia entre 
+			objeto Java para o modelo JSON -->
+		<!--Ele pega um objeto e converte pro Json e vice versa com auxilio do 
+			Core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.6</version>
+		</dependency>
 	</dependencies>
 </project>
