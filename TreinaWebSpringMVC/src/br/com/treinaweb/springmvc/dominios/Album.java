@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity // Esta classe é uma entidade que pode ser persistida em BD
 @Table(name = "alb_albuns") // O nome da tabela referente a essa entity é "alb_albuns"
 //Classe Pojo. Uma Classe que possui suas variáveis de forma privada e métodos getters e setters públicos.
@@ -40,6 +42,7 @@ public class Album {
 
 	//UmPraMuitos(mappedBy="Dentro da entidade musica, quem está mapeado com relaçao a entidade album, que no caso é a variável album",cascade="O que acontecerá com esse set ao ser atualizado o album)
 	@OneToMany(mappedBy = "album", fetch = FetchType.EAGER, cascade = CascadeType.MERGE, orphanRemoval = true)//orphanRemoval = remove musicas que não tenham um album correspondente automaticamente
+	@JsonBackReference
 	private Set<Musica> musicas;
 
 	public Set<Musica> getMusicas() {

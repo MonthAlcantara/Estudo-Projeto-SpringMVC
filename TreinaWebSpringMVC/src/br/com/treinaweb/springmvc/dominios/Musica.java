@@ -19,6 +19,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "mus_musicas")
 public class Musica {
@@ -48,6 +50,7 @@ public class Musica {
 	@JoinColumn(name="alb_id")/*A minha foreing key, A coluna da outra tabela que fará referencia esta tabela será a coluna alb_id.
 	 Cada linha dessa minha tabela estará ligada a essa foreing key
 	*/
+	@JsonManagedReference
 	private Album album;
 
 	public Long getId() {
