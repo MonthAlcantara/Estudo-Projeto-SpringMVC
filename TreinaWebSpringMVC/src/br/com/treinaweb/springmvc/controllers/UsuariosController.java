@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.treinaweb.springmvc.dominios.Usuario;
 import br.com.treinaweb.springmvc.repositorios.RepositorioUsuario;
-
+@Controller
 @RequestMapping("/usuarios")
 public class UsuariosController {
 	@Autowired
@@ -34,7 +35,7 @@ public class UsuariosController {
 		return "usuario.adicionar.tiles";
 	}
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
-	public String adicionar(Model model,@ModelAttribute(name = "usuario")@Valid Usuario usuario, BindingResult resultado) {
+	public String adicionar(Model model,@ModelAttribute("usuario")@Valid Usuario usuario, BindingResult resultado) {
 		if(resultado.hasErrors()) {
 			model.addAttribute("usuario", new Usuario());
 			return "usuario.adicionar.tiles";	

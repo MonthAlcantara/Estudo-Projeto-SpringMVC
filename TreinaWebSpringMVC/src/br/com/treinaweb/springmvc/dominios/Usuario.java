@@ -24,11 +24,12 @@ public class Usuario {
 	@Column(name = "usr_username",length = 10, unique = true, nullable = false)
 	private String username;
 	
-	
+	@NotEmpty(message = "A senha do usuario é obrigatória")
+	@Length(min = 3, max=10, message = "O numero de caracteres deve ser maior que 3 e menor que 10")
 	@Column(name = "usr_password", nullable = false, length = 150)
 	private String password;
-	@Column(name = "usr_roler",length = 20, nullable = false)
-	private String roler;
+	@Column(name = "usr_role",length = 20, nullable = false)
+	private String role;
 	
 	public Long getId() {
 		return id;
@@ -48,11 +49,11 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRoler() {
-		return roler;
+	public String getRole() {
+		return role;
 	}
 	public void setRoler(String roler) {
-		this.roler = roler;
+		this.role = roler;
 	}
 	
 	

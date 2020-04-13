@@ -27,7 +27,7 @@
 		que eu dei ao meu layout base. Ou seja, elas serão usadas la. São extensões 
 		dessa pagina -->
 
-	<!-- Tela de Adicionar -->
+							<!-- Tela de Adicionar -->
 
 	<definition name="album.adicionar.tiles"
 		extends="layout.tiles">
@@ -37,17 +37,7 @@
 			value="/WEB-INF/views/albuns/adicionar.jsp"></put-attribute>
 	</definition>
 
-
-	<!-- Tela de exibição -->
-
-	<definition name="album.exibir.tiles" extends="layout.tiles">
-		<put-attribute name="title"
-			value="TreinaWeb Spring MVC: Exibição de álbuns"></put-attribute>
-		<put-attribute name="body"
-			value="/WEB-INF/views/albuns/exibir.jsp"></put-attribute>
-	</definition>
-
-	<!-- Tela de Alteração -->
+							<!-- Tela de Alteração -->
 
 	<definition name="album.alterar.tiles"
 		extends="layout.tiles">
@@ -56,7 +46,7 @@
 			value="/WEB-INF/views/albuns/alterar.jsp"></put-attribute>
 	</definition>
 
-	<!-- Tela de Listagem -->
+							<!-- Tela de Listagem -->
 
 	<definition name="album.listar.tiles" extends="layout.tiles">
 		<put-attribute name="title" value="Lista de Albuns"></put-attribute>
@@ -70,19 +60,9 @@
 	<definition name="musica.adicionar.tiles"
 		extends="layout.tiles">
 		<put-attribute name="title"
-			value="TreinaWeb Spring MVC: Adição de músicas"></put-attribute>
+			value="Adição de músicas"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/musicas/adicionar.jsp"></put-attribute>
-	</definition>
-
-
-						<!-- Tela de exibição -->
-
-	<definition name="musica.exibir.tiles" extends="layout.tiles">
-		<put-attribute name="title"
-			value="TreinaWeb Spring MVC: Exibição de músicas"></put-attribute>
-		<put-attribute name="body"
-			value="/WEB-INF/views/musicas/exibir.jsp"></put-attribute>
 	</definition>
 
 						<!-- Tela de Alteração -->
@@ -101,4 +81,25 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/musicas/listar.jsp"></put-attribute>
 	</definition>
+	
+							<!-- Usuarios -->
+							
+								
+						<!-- Tela de Adicionar -->
+
+	<definition name="usuario.adicionar.tiles"
+		extends="layout.tiles">
+		<put-attribute name="title"
+			value="Adição de Usuarios"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/usuarios/adicionar.jsp"></put-attribute>
+	</definition>
+							
+						<!-- Tela de Listagem -->
+
+	<definition name="usuario.listar.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="Lista de Usuarios"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/usuarios/listar.jsp"></put-attribute>
+	</definition>							
 </tiles-definitions>
