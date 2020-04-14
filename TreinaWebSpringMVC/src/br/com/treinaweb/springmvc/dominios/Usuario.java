@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,18 +18,18 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "usr_id")
 	private Long id;
-	
+
+	@Column(name = "usr_username", length = 10, nullable = false)
+	@Size(min = 3, max = 10, message = "O nome de usuário deve conter entre 3 e 10 caracteres")
 	@NotEmpty(message = "O nome de usuário é obrigatório")
-	@Length(min = 3, max=10, message = "O numero de caracteres deve ser maior que 3 e menor que 10")
-	@Column(name = "usr_username",length = 10, unique = true, nullable = false)
 	private String username;
-	
-	@NotEmpty(message = "A senha do usuario é obrigatória")
-	@Length(min = 3, max=10, message = "O numero de caracteres deve ser maior que 3 e menor que 10")
-	@Column(name = "usr_password", nullable = false, length = 150)
+
+	@Column(name = "usr_password", length = 150, nullable = false)
 	private String password;
-	@Column(name = "usr_role",length = 20, nullable = false)
+
+	@Column(name = "usr_role", length = 20, nullable = false)
 	private String role;
 	
 	public Long getId() {
@@ -52,7 +53,7 @@ public class Usuario {
 	public String getRole() {
 		return role;
 	}
-	public void setRoler(String roler) {
+	public void setRole(String roler) {
 		this.role = roler;
 	}
 	

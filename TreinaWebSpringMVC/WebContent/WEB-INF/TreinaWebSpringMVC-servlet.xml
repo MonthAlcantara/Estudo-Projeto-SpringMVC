@@ -97,7 +97,7 @@ class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 							<!-- org.hibernate.dialect.PostgreSQL92Dialect -->
 <prop key="hibernate.dialect"> org.hibernate.dialect.PostgreSQLDialect</prop>
 <prop key="hibernate.show_sql">true</prop>
-<prop key="hibernate.hbm2ddl.auto">create</prop><!--  --> 
+<prop key="hibernate.hbm2ddl.auto">update</prop><!--  --> 
 </props>
 
 </property>
@@ -111,17 +111,20 @@ class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 								
 								<!-- Spring Security -->
 <bean id="userDetailsService" class="br.com.treinaweb.springmvc.security.TreinaWebUserDetailsService">
+</bean>
+
 <!-- Algumas URLS todos os usuarios poderão ter acesso. por isso segue as configurações -->
-<sec:http pattern="/resources/**" security="none"><!-- A  minha pasta recursos tem que estar disponível para acesso por que a pagina de login, por exemplo, estará lá -->
-</sec:http>
-<sec:http pattern="/home/login" security="none"><!-- Security = "none". Meu Spring Security não atuará ali --></sec:http>
+<sec:http pattern="/resources/**" security="none"></sec:http><!-- A  minha pasta recursos tem que estar disponível para acesso por que a pagina de login, por exemplo, estará lá -->
+<sec:http pattern="/home/login" security="none"></sec:http><!-- Security = "none". Meu Spring Security não atuará ali -->
 <sec:http use-expressions="true" auto-config="true"><!-- use Expressions = true -> Para habilitara apossibilidade de usar algumas expressions do Spring Security -->
 <!-- Paginas que estarão sob o controle do Spring Security -->
-<sec:intercept-url pattern="/**/adicionar" access="hasRole(ROLE_ADMIN)"/><!-- Todo controller /** terá o /adicionar protegido. Nem todos terão acesso -->
+<sec:intercept-url pattern="/**/adicionar" access="hasRole('ROLE_ADMIN')"/>
+<!-- Todo controller /** terá o /adicionar protegido. Nem todos terão acesso -->
 <!-- hasRole é uma das expressions habilitadas acima. Estou dizendo que a condição para acessar o adicionar via qqr controller é ter o role ROLE_ADMIN -->
-<sec:intercept-url pattern="/**/alterar/**" access="hasRole(ROLE_ADMIN)"/>
+<sec:intercept-url pattern="/**/alterar/**" access="hasRole('ROLE_ADMIN')"/>
 <!-- Qualquer um que quiser alterar ou excluir, independente do ID, deverá ser um ROLE_ADMIN -->
-<sec:intercept-url pattern="/**/excluir/**" access="hasRole(ROLE_ADMIN)"/>
+<sec:intercept-url pattern="/**/excluir/**" access="hasRole('ROLE_ADMIN')"/>
+<sec:intercept-url pattern="/**" access="isAuthenticated()" />
 <sec:form-login
 login-page="/home/login" 
 default-target-url="/home/bemvindo"
@@ -130,21 +133,19 @@ username-parameter="username"
 password-parameter="password"
 /><!-- Forma como o login vai acontecer -->
 <!-- login-page >> Onde está localizada minha tela de login -->
-<!-- default-target-url >> Pra onde le vai dpois de autorizado a entrar -->
+<!-- default-target-url >> Pra onde ele vai depois de autorizado a entrar -->
 <!-- authentication-failure-url >> Pra onde ele vai caso for negada a entrada dele -->
 <!-- username-parameter e password-parameter >> Quais parametros serão os meus username e password -->
 <!-- O que vai acontecer no processo de Logout -->
 <sec:logout logout-success-url="/home/login" invalidate-session="true"/>
 <!-- logout-success-url >> Pagina a qual ele vai ao efetuar logout -->
 <!-- invalidate-session >> Ao efetuar logout, a sua sessão será invalidada. Para voltar só acessando novamente -->
+<sec:csrf disabled="true"/>
 </sec:http>
 <sec:authentication-manager><!-- Classe que vai buscar as informaççoes relativas ao usuario. Link entre O Spring security e minha classe TreinaWebUserDetailsService -->
 <sec:authentication-provider user-service-ref="userDetailsService"><!-- user-service-ref >> Link do security com minha classe -->
-<sec:password-encoder hash="bcrypt"><!-- Como minha senha está criptografada no banco com um hash do tipo bcrypt, eu tenho que informar isso ao Spring pra que ele cheque a senha digitada com a do banco -->
-</sec:password-encoder>
+<sec:password-encoder hash="bcrypt"></sec:password-encoder><!-- Como minha senha está criptografada no banco com um hash do tipo bcrypt, eu tenho que informar isso ao Spring pra que ele cheque a senha digitada com a do banco -->
 </sec:authentication-provider>
-
 </sec:authentication-manager>
-</bean>
-
 </beans>
+

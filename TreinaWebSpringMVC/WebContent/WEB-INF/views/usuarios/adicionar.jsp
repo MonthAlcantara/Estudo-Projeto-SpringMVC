@@ -33,7 +33,7 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<!-- div class="col-md-6 col-xs-12" = Para dispositivos medios ele ocupara 6 colunas mas em disposivos pequenos (xs) ele ocupará 12  colunas. o próprio bootstrap vai fazer essa distinção do parelho do usuario -->
-				<label>Password:</label>
+				<label>Senha:</label>
 				<form:password path="password" cssClass="form-control" />
 				<form:errors path="password" cssStyle="color: red;" />
 			</div>
@@ -42,14 +42,13 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<label>Tipo de Usuario</label>
-				<select name="role" class="form-control">
-				<option value="ROLE_ADMIN">Administrador</option>
-				<option value="ROLE_USER">Usuario comum</option>
+				<label>Perfil:</label>
+				 <select name="role" class="form-control">
+					<option value="ROLE_ADMIN">Administrador</option>
+					<option value="ROLE_USER">Usuário comum</option>
 				</select>
 			</div>
 		</div>
-
 	</div>
 	<input type="submit" value="Salvar" class="btn btn-default" />
 	<!-- A classe btn é do proprio html porém ela identifica o elemento como botão para o Bootstrap e permite estilizar ele -->

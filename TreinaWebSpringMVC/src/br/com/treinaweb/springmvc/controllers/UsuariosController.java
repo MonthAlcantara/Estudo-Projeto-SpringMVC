@@ -37,9 +37,9 @@ public class UsuariosController {
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 	public String adicionar(Model model,@ModelAttribute("usuario")@Valid Usuario usuario, BindingResult resultado) {
 		if(resultado.hasErrors()) {
-			model.addAttribute("usuario", new Usuario());
-			return "usuario.adicionar.tiles";	
+						return "usuario.adicionar.tiles";	
 		}else {
+			
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();//Classe do Spring Security que codifica senha
 			usuario.setPassword(encoder.encode(usuario.getPassword()));//Pegando a senha do usuario e salvando dr forma codificada
 			repositorioUsuario.save(usuario);//Depois de codificar a senha do usuario, eu salvo no meu BD	
@@ -48,16 +48,5 @@ public class UsuariosController {
 		return "redirect:/usuarios/listar";
 	}
 
-	@RequestMapping(value = "/alterar")
-	public String alterar(Model model, @RequestParam(name = "id", defaultValue = "") Long id) {
-		model.addAttribute("usuario", repositorioUsuario.findOne(id));
-		return "usuarios.alterar.tiles";
-	}
-
-	@RequestMapping(value = "/excluir", method = RequestMethod.GET)
-	public String excluir(@RequestParam(name = "id", defaultValue = "") Long id) {
-		repositorioUsuario.delete(id);
-		return "redirect:/usuarios/listar";
-	}
-
+	
 }

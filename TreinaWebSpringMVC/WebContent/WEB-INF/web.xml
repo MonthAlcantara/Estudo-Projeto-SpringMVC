@@ -22,5 +22,13 @@
 <servlet-name>TreinaWebSpringMVC</servlet-name><!--  aqui é indicado o servlet -->
 <url-pattern>/</url-pattern><!--  tipo de url que ele interceptará. o "/" significa que ele pegará todas as urls -->
 </servlet-mapping>
-
+<filter><!-- FIltro do Spring Security -->
+<filter-name>springSecurityFilterChain</filter-name>
+<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class><!-- Funciona como by-pass, antes de chegar no meu controller a req passa pelo Sp. Sec. e lé ele é redirecionado   -->
+</filter>
+<!-- Quais urls o meu filtro vai agir -->
+<filter-mapping>
+<filter-name>springSecurityFilterChain</filter-name><!-- Este meu filtro irá interceder todas as requisições "/*" -->
+<url-pattern>/*</url-pattern>
+</filter-mapping>
 </web-app>

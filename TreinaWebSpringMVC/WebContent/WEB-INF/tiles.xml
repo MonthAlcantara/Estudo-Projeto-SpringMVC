@@ -102,4 +102,24 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/usuarios/listar.jsp"></put-attribute>
 	</definition>							
+	
+							<!-- Usuarios -->
+							
+							<!-- Tela de Bem Vindo -->
+							
+	<definition name="home.bemvindo.tiles"
+		extends="layout.tiles">
+		<put-attribute name="title"
+			value="Bem Vindo"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/bemvindo.jsp"></put-attribute>
+	</definition>
+							
+						<!-- Tela de Login -->
+
+	<definition name="home.login.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="Tela de Login"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/login.jsp"></put-attribute>
+	</definition>										
 </tiles-definitions>
